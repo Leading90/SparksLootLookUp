@@ -1,3 +1,21 @@
+<form class="form">
+  <mat-form-field class="form-field">
+    <label>
+      <input type="text"
+             placeholder="Select Item"
+             matInput
+             [formControl]="selectedItem"
+             (ngModelChange)="inputChanged()"
+             [matAutocomplete]="auto">
+    </label>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let item of items" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
 <table mat-table [dataSource]="dataSource" class="table">
 
   <!-- Name Column -->
@@ -11,7 +29,6 @@
     <th mat-header-cell *matHeaderCellDef> Rating </th>
     <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
   </ng-container>
-
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

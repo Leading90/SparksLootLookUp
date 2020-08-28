@@ -22,6 +22,9 @@ export class RequestService {
   }
 
   getTableData(selectedItem: string): TableData[] {
-    return this.tableData;
+    if (selectedItem === 'item1') {
+      return this.tableData;
+    }
+    return [];
   }
 }

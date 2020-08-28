@@ -5,18 +5,16 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {InputFormComponent} from './components/input-form/input-form.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { DataTableComponent } from './components/data-table/data-table.component';
 import {MatTableModule} from '@angular/material/table';
+import { DataDisplayComponent } from './components/data-display/data-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputFormComponent,
-    DataTableComponent
+    DataDisplayComponent
   ],
   imports: [
     BrowserModule,
