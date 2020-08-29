@@ -7,7 +7,6 @@ form-field {
   width: 30%;
 }
 
-table {
-  padding: 10px;
-  width: 100%;
+data-display {
+  margin: 10px;
 }

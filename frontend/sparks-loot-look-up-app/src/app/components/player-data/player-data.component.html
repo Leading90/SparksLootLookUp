@@ -1,0 +1,21 @@
+<form class="form">
+  <mat-form-field class="form-field">
+    <label>
+      <input type="text"
+             placeholder="Select Player"
+             matInput
+             [formControl]="selectedItem"
+             (ngModelChange)="inputChanged()"
+             [matAutocomplete]="auto">
+    </label>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let item of items" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div>
+  <label class="data-display">{{playerData}}</label>
+</div>

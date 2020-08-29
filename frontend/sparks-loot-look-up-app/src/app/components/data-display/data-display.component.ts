@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
-import {TableData} from '../../dataTypes/tableData';
+import {ItemData} from '../../dataTypes/shared-data-types';
 
 @Component({
   selector: 'app-data-display',
@@ -11,10 +11,10 @@ import {TableData} from '../../dataTypes/tableData';
 export class DataDisplayComponent implements OnInit {
 
   displayedColumns: string[] = ['playerName', 'rating'];
-  dataSource: TableData[];
+  dataSource: ItemData[];
 
   selectedItem = new FormControl();
-  items = this.requestService.getOptions();
+  items = this.requestService.getItemOptions();
 
   constructor(private requestService: RequestService) {
   }
@@ -23,6 +23,6 @@ export class DataDisplayComponent implements OnInit {
   }
 
   inputChanged(): void {
-    this.dataSource = this.requestService.getTableData(this.selectedItem.value);
+    this.dataSource = this.requestService.getItemData(this.selectedItem.value);
   }
 }

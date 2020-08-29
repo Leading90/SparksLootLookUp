@@ -1,1 +1,15 @@
-<app-data-display></app-data-display>
+<p>
+  <mat-toolbar color="primary">
+    <span>SPARKS LOOT</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="selectionButton">
+      <a routerLink="/item" routerLinkActive="active">Item View</a>
+    </button>
+    <button mat-icon-button class="selectionButton">
+      <a routerLink="/player" routerLinkActive="active">Player View</a>
+    </button>
+  </mat-toolbar>
+</p>
+
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

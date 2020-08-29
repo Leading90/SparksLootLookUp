@@ -9,12 +9,15 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
-import { DataDisplayComponent } from './components/data-display/data-display.component';
+import {DataDisplayComponent} from './components/data-display/data-display.component';
+import { PlayerDataComponent } from './components/player-data/player-data.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataDisplayComponent
+    DataDisplayComponent,
+    PlayerDataComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { DataDisplayComponent } from './components/data-display/data-display.com
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
