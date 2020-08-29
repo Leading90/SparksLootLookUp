@@ -32,6 +32,9 @@ export class DataDisplayComponent implements OnInit {
   }
 
   getIDfromName(name: string): number {
-    return this.items.filter(item => item.Name === name)[0].ID;
+    const foundItems = this.items.filter(item => item.Name === name);
+    if (foundItems.length === 1) {
+      return this.items.filter(item => item.Name === name)[0].ID;
+    }
   }
 }
