@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {DataDisplayComponent} from './components/data-display/data-display.component';
 import { PlayerDataComponent } from './components/player-data/player-data.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormsModule,
     MatInputModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

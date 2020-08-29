@@ -7,7 +7,7 @@ import {PlayerDataComponent} from './components/player-data/player-data.componen
 const routes: Routes = [
   {path: 'item', component: DataDisplayComponent},
   {path: 'player', component: PlayerDataComponent},
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/item', pathMatch: 'full' },
 ];
 
 @NgModule({

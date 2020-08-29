@@ -9,12 +9,16 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of items" [value]="item">
-        {{item}}
+      <mat-option *ngFor="let item of items" [value]="item.Name">
+        {{item.Name}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </form>
+
+<div *ngIf="selectedItem.value" class="form">
+  <a href="https://www.wowhead.com/item=21134" data-wowhead="item=21134">{{selectedItem.value}}</a>
+</div>
 
 <table mat-table [dataSource]="dataSource" class="table">
 

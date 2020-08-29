@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ItemData, PlayerData} from '../dataTypes/shared-data-types';
+import {ItemData, LootListData, PlayerData} from '../dataTypes/shared-data-types';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class RequestService {
   constructor() {
   }
 
-  itemOptions = ['item1', 'item2'];
+  itemOptions = [{ID: 19364, Name: 'Ashkandi'}, {ID: 21134, Name: 'Dark Edge of Insanity'}];
   playerOptions = ['furyWarry1', 'furyWarry2'];
 
   dummyItemData = [
@@ -22,7 +22,7 @@ export class RequestService {
     {playerID: 2, playerName: 'furyWarry2', class: 'warry', modifier: 9000},
   ];
 
-  getItemOptions(): string[] {
+  getItemOptions(): ItemData[] {
     return this.itemOptions;
   }
 
@@ -30,8 +30,8 @@ export class RequestService {
     return this.playerOptions;
   }
 
-  getItemData(selectedItem: string): ItemData[] {
-    if (selectedItem === 'item1') {
+  getItemData(selectedItem: number): LootListData[] {
+    if (selectedItem === 19364) {
       return this.dummyItemData;
     }
     return [];

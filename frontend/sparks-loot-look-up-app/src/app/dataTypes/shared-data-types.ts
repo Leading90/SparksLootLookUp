@@ -1,6 +1,11 @@
-export interface ItemData {
+export interface LootListData {
   playerName: string;
   rating: number;
+}
+
+export interface ItemData {
+  Name: string;
+  ID: number;
 }
 
 export interface PlayerData {
