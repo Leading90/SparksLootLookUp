@@ -29,6 +29,7 @@ export class DataDisplayComponent implements OnInit {
       this.selectedItemID = this.getIDfromName(this.selectedItem.value);
       console.log(this.selectedItemID);
     }
+    this.requestService.getFromHTTPExample();
   }
 
   getIDfromName(name: string): number {

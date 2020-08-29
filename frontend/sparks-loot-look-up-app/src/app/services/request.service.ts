@@ -1,12 +1,16 @@
 import {Injectable} from '@angular/core';
 import {ItemData, LootListData, PlayerData} from '../dataTypes/shared-data-types';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
 
-  constructor() {
+  exampleUrl = 'https://swapi.dev/api/';
+  returnData: string;
+
+  constructor(private http: HttpClient) {
   }
 
   itemOptions = [{ID: 19364, Name: 'Ashkandi'}, {ID: 21134, Name: 'Dark Edge of Insanity'}];
@@ -39,5 +43,11 @@ export class RequestService {
 
   getPlayerData(selectedPlayer: string): PlayerData {
     return this.dummyPlayerData.filter(player => player.playerName === selectedPlayer)[0];
+  }
+
+  getFromHTTPExample(): void {
+    this.http.get(this.exampleUrl + 'people/1')
+      .subscribe((data: any) => this.returnData = data);
+    console.log(this.returnData);
   }
 }

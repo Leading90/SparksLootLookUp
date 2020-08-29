@@ -10,9 +10,10 @@ import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {DataDisplayComponent} from './components/data-display/data-display.component';
-import { PlayerDataComponent } from './components/player-data/player-data.component';
+import {PlayerDataComponent} from './components/player-data/player-data.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     ReactiveFormsModule,
