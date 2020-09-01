@@ -4,18 +4,49 @@
       <input type="text"
              placeholder="Select Player"
              matInput
-             [formControl]="selectedItem"
+             [formControl]="selectedName"
              (ngModelChange)="inputChanged()"
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of items" [value]="item">
-        {{item}}
+      <mat-option *ngFor="let item of playerList" [value]="item.name">
+        {{item.name}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </form>
 
-<div>
-  <label class="data-display">{{playerData}}</label>
+<div *ngIf="dataSource">
+  <form class="form">
+    <mat-form-field class="form-field">
+      <label>
+        <input type="text"
+               placeholder="Modifier"
+               matInput
+               [formControl]="selectedPlayersModifier"
+               [matAutocomplete]="auto">
+      </label>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="modifierChanged()" style="margin: 10px">
+      change Modifier
+    </button>
+  </form>
+
+  <table mat-table [dataSource]="dataSource" class="table">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="item_name">
+      <th mat-header-cell *matHeaderCellDef> Item Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.item_name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="priority">
+      <th mat-header-cell *matHeaderCellDef>Priority</th>
+      <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

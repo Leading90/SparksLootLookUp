@@ -9,8 +9,8 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of items" [value]="item.Name">
-        {{item.Name}}
+      <mat-option *ngFor="let item of items" [value]="item.item_name">
+        {{item.item_name}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
@@ -18,22 +18,22 @@
 
 <div *ngIf="selectedItem.value" style="padding: 20px">
   <span style="float: right">
-    <a href="https://www.wowhead.com/item={{selectedItemID}}"
+    <a href="https://www.classic.wowhead.com/item={{selectedItemID}}"
        data-wowhead="item={{selectedItemID}}">{{selectedItem.value}}</a>
   </span>
 
   <table mat-table [dataSource]="dataSource" class="table">
 
     <!-- Name Column -->
-    <ng-container matColumnDef="playerName">
-      <th mat-header-cell *matHeaderCellDef> PlayerName</th>
-      <td mat-cell *matCellDef="let element"> {{element.playerName}} </td>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Player Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="rating">
+    <ng-container matColumnDef="priority">
       <th mat-header-cell *matHeaderCellDef> Rating</th>
-      <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

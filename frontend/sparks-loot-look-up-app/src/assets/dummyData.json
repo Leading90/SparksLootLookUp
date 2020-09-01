@@ -1,0 +1,480 @@
+{
+  "records": [
+    {
+      "priority": "12",
+      "wowheadid": "21695",
+      "item_name": "Angelista's Touch",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "14",
+      "wowheadid": "19376",
+      "item_name": "Archimitiros' Ring of Reckoning",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "12",
+      "wowheadid": "21664",
+      "item_name": "Barbed Choker",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "8",
+      "wowheadid": "21688",
+      "item_name": "Boots of the Fallen Hero",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "1",
+      "wowheadid": "20929",
+      "item_name": "Carapace of the Old God",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "3",
+      "wowheadid": "20929",
+      "item_name": "Carapace of the Old God",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "5",
+      "wowheadid": "20929",
+      "item_name": "Carapace of the Old God",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "5",
+      "wowheadid": "20929",
+      "item_name": "Carapace of the Old God",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "6",
+      "wowheadid": "20929",
+      "item_name": "Carapace of the Old God",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "2",
+      "wowheadid": "19387",
+      "item_name": "Chromatic Boots",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "7",
+      "wowheadid": "19387",
+      "item_name": "Chromatic Boots",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "6",
+      "wowheadid": "21621",
+      "item_name": "Cloak of the Golden Hive",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "6",
+      "wowheadid": "21621",
+      "item_name": "Cloak of the Golden Hive",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "7",
+      "wowheadid": "21621",
+      "item_name": "Cloak of the Golden Hive",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "9",
+      "wowheadid": "21621",
+      "item_name": "Cloak of the Golden Hive",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "10",
+      "wowheadid": "21621",
+      "item_name": "Cloak of the Golden Hive",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "15",
+      "wowheadid": "0",
+      "item_name": "Crul'shorukh",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "12",
+      "wowheadid": "21126",
+      "item_name": "Death's Sting",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "13",
+      "wowheadid": "21126",
+      "item_name": "Death's Sting",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "15",
+      "wowheadid": "21126",
+      "item_name": "Death's Sting",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "1",
+      "wowheadid": "19406",
+      "item_name": "Drake Fang Talisman",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "1",
+      "wowheadid": "19406",
+      "item_name": "Drake Fang Talisman",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "4",
+      "wowheadid": "19406",
+      "item_name": "Drake Fang Talisman",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "1",
+      "wowheadid": "19349",
+      "item_name": "Elementium Reinforced Bulwark",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "10",
+      "wowheadid": "19349",
+      "item_name": "Elementium Reinforced Bulwark",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "10",
+      "wowheadid": "19349",
+      "item_name": "Elementium Reinforced Bulwark",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "10",
+      "wowheadid": "19349",
+      "item_name": "Elementium Reinforced Bulwark",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "9",
+      "wowheadid": "21674",
+      "item_name": "Gauntlets of Steadfast Determination",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "10",
+      "wowheadid": "21674",
+      "item_name": "Gauntlets of Steadfast Determination",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "1",
+      "wowheadid": "8789",
+      "item_name": "Imperial Qiraji Armaments",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "4",
+      "wowheadid": "8789",
+      "item_name": "Imperial Qiraji Armaments",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "5",
+      "wowheadid": "8789",
+      "item_name": "Imperial Qiraji Armaments",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "9",
+      "wowheadid": "8789",
+      "item_name": "Imperial Qiraji Armaments",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "11",
+      "wowheadid": "8789",
+      "item_name": "Imperial Qiraji Armaments",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "11",
+      "wowheadid": "19341",
+      "item_name": "Lifegiving Gem",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "11",
+      "wowheadid": "0",
+      "item_name": "Maladath",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "2",
+      "wowheadid": "22732",
+      "item_name": "Mark of C'Thun",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "2",
+      "wowheadid": "22732",
+      "item_name": "Mark of C'Thun",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "7",
+      "wowheadid": "22732",
+      "item_name": "Mark of C'Thun",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "8",
+      "wowheadid": "22732",
+      "item_name": "Mark of C'Thun",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "8",
+      "wowheadid": "22732",
+      "item_name": "Mark of C'Thun",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "3",
+      "wowheadid": "20927",
+      "item_name": "Ouro's Intact Hide",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "4",
+      "wowheadid": "20927",
+      "item_name": "Ouro's Intact Hide",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "5",
+      "wowheadid": "20927",
+      "item_name": "Ouro's Intact Hide",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "5",
+      "wowheadid": "20927",
+      "item_name": "Ouro's Intact Hide",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "6",
+      "wowheadid": "20927",
+      "item_name": "Ouro's Intact Hide",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "13",
+      "wowheadid": "21639",
+      "item_name": "Pauldrons of the Unrelenting",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "2",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "2",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "3",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "3",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "4",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "11",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "13",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "14",
+      "wowheadid": "20928",
+      "item_name": "Qiraji Bindings of Command",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "8",
+      "wowheadid": "21601",
+      "item_name": "Ring of Emperor Vek'lor",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "9",
+      "wowheadid": "21601",
+      "item_name": "Ring of Emperor Vek'lor",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "11",
+      "wowheadid": "21677",
+      "item_name": "Ring of the Qiraji Fury",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "14",
+      "wowheadid": "21677",
+      "item_name": "Ring of the Qiraji Fury",
+      "name": "Xika",
+      "idraider": "3"
+    },
+    {
+      "priority": "7",
+      "wowheadid": "21598",
+      "item_name": "Royal Qiraji Belt",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "13",
+      "wowheadid": "21598",
+      "item_name": "Royal Qiraji Belt",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "4",
+      "wowheadid": "19431",
+      "item_name": "Styleen's Impeding Scarab",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "7",
+      "wowheadid": "21692",
+      "item_name": "Triad Girdle",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "6",
+      "wowheadid": "20926",
+      "item_name": "Vek'nilash's Circlet",
+      "name": "Spacebag",
+      "idraider": "2"
+    },
+    {
+      "priority": "8",
+      "wowheadid": "20926",
+      "item_name": "Vek'nilash's Circlet",
+      "name": "Marumba",
+      "idraider": "5"
+    },
+    {
+      "priority": "9",
+      "wowheadid": "20926",
+      "item_name": "Vek'nilash's Circlet",
+      "name": "Hergledergle",
+      "idraider": "4"
+    },
+    {
+      "priority": "12",
+      "wowheadid": "20926",
+      "item_name": "Vek'nilash's Circlet",
+      "name": "Lob",
+      "idraider": "1"
+    },
+    {
+      "priority": "3",
+      "wowheadid": "16960",
+      "item_name": "Waistband of Wrath",
+      "name": "Lob",
+      "idraider": "1"
+    }
+  ]
+}

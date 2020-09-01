@@ -1,16 +1,25 @@
 export interface LootListData {
-  playerName: string;
-  rating: number;
+  idraider: number;
+  name: string;
+  priority: number;
 }
 
 export interface ItemData {
-  Name: string;
-  ID: number;
+  item_name: string;
+  wowheadid: number;
 }
 
 export interface PlayerData {
-  playerID: number;
-  playerName: string;
+  idraider: number;
+  name: string;
   class: string;
-  modifier: number;
+  priority: number;
+}
+
+export interface BasicType {
+  idraider: number;
+  item_name: string;
+  name: string;
+  priority: number;
+  wowheadid: number;
 }

@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
-import {ItemData, LootListData, PlayerData} from '../dataTypes/shared-data-types';
+import {BasicType, ItemData, LootListData, PlayerData} from '../dataTypes/shared-data-types';
 import {HttpClient} from '@angular/common/http';
+// tslint:disable-next-line:import-spacing
+// @ts-ignore
+import * as  dummyData from '../../assets/dummyData.json';
 
 @Injectable({
   providedIn: 'root'
@@ -13,36 +16,79 @@ export class RequestService {
   constructor(private http: HttpClient) {
   }
 
-  itemOptions = [{ID: 19364, Name: 'Ashkandi'}, {ID: 21134, Name: 'Dark Edge of Insanity'}];
   playerOptions = ['furyWarry1', 'furyWarry2'];
 
   dummyItemData = [
-    {playerName: 'furyWarry1', rating: 1},
-    {playerName: 'furyWarri2', rating: 2}
+    {idraider: 1, name: 'furyWarry1', priority: 1},
+    {idraider: 2, name: 'furyWarri2', priority: 2}
   ];
 
   dummyPlayerData = [
-    {playerID: 1, playerName: 'furyWarry1', class: 'warry', modifier: 1},
-    {playerID: 2, playerName: 'furyWarry2', class: 'warry', modifier: 9000},
+    {idraider: 1, name: 'furyWarry1', class: 'warry', priority: 1},
+    {idraider: 2, name: 'furyWarry2', class: 'warry', priority: 9000},
   ];
 
   getItemOptions(): ItemData[] {
-    return this.itemOptions;
+    const itemDataList: ItemData[] = [];
+    for (const entry of dummyData.records) {
+      let test = true;
+      const object = {item_name: entry.item_name, wowheadid: entry.wowheadid} as ItemData;
+      for (const item of itemDataList) {
+        if (object.wowheadid === item.wowheadid) {
+          test = false;
+        }
+      }
+      if (test) {
+        itemDataList.push(object);
+      }
+    }
+    return itemDataList;
   }
 
-  getPlayerOptions(): string[] {
-    return this.playerOptions;
+  getPlayerOptions(): PlayerData[] {
+    const playerDataList: PlayerData[] = [];
+    for (const entry of dummyData.records) {
+      let test = true;
+      const object = {
+        idraider: entry.idraider,
+        name: entry.name,
+        class: entry.class,
+        priority: entry.priority
+      } as PlayerData;
+      for (const item of playerDataList) {
+        if (object.idraider === item.idraider) {
+          test = false;
+        }
+      }
+      if (test) {
+        playerDataList.push(object);
+      }
+    }
+    return playerDataList;
   }
 
   getItemData(selectedItem: number): LootListData[] {
-    if (selectedItem === 19364) {
-      return this.dummyItemData;
-    }
-    return [];
+    return dummyData.records.filter(entry => {
+      return entry.wowheadid === selectedItem;
+    }).sort((n1, n2) => n1.priority - n2.priority);
+  }
+
+  getLootListData(selectedPlayer: string): BasicType[] {
+    return dummyData.records.filter(player => {
+      return player.name === selectedPlayer;
+    }).sort((n1, n2) => n1.priority - n2.priority);
   }
 
   getPlayerData(selectedPlayer: string): PlayerData {
-    return this.dummyPlayerData.filter(player => player.playerName === selectedPlayer)[0];
+    const playerEntry = dummyData.records.filter(player => {
+      return player.name === selectedPlayer;
+    })[0];
+    return {
+      idraider: playerEntry.idraider,
+      name: playerEntry.name,
+      class: playerEntry.class,
+      priority: playerEntry.priority
+    } as PlayerData;
   }
 
   getFromHTTPExample(): void {

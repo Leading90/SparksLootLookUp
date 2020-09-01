@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PlayerData} from '../../dataTypes/shared-data-types';
+import {BasicType, PlayerData} from '../../dataTypes/shared-data-types';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
 
@@ -10,17 +10,28 @@ import {RequestService} from '../../services/request.service';
 })
 export class PlayerDataComponent implements OnInit {
 
-  selectedItem = new FormControl();
-  items = this.requestService.getPlayerOptions();
+  selectedName = new FormControl();
+  selectedPlayersModifier = new FormControl();
+  playerList: PlayerData[];
+  dataSource: BasicType[];
   playerData = 'no player selected';
+  displayedColumns: string[] = ['item_name', 'priority'];
 
   constructor(private requestService: RequestService) {
   }
 
   ngOnInit(): void {
+    this.playerList = this.requestService.getPlayerOptions();
   }
 
   inputChanged(): void {
-    this.playerData = JSON.stringify(this.requestService.getPlayerData(this.selectedItem.value));
+    const player = this.requestService.getPlayerData(this.selectedName.value);
+    this.selectedPlayersModifier.setValue(player.priority);
+    this.playerData = JSON.stringify(player);
+    this.dataSource = this.requestService.getLootListData(this.selectedName.value);
+  }
+
+  modifierChanged(): void {
+    // TODO: change modifier
   }
 }

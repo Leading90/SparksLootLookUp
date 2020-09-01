@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
-import {LootListData} from '../../dataTypes/shared-data-types';
+import {ItemData, LootListData} from '../../dataTypes/shared-data-types';
 
 @Component({
   selector: 'app-data-display',
@@ -10,32 +10,31 @@ import {LootListData} from '../../dataTypes/shared-data-types';
 })
 export class DataDisplayComponent implements OnInit {
 
-  displayedColumns: string[] = ['playerName', 'rating'];
+  displayedColumns: string[] = ['name', 'priority'];
   dataSource: LootListData[];
 
   selectedItem = new FormControl();
   selectedItemID: number;
-  items = this.requestService.getItemOptions();
+  items: ItemData[];
 
   constructor(private requestService: RequestService) {
   }
 
   ngOnInit(): void {
+    this.items = this.requestService.getItemOptions();
   }
 
   inputChanged(): void {
     if (this.selectedItem.value) {
       this.dataSource = this.requestService.getItemData(this.getIDfromName(this.selectedItem.value));
       this.selectedItemID = this.getIDfromName(this.selectedItem.value);
-      console.log(this.selectedItemID);
     }
-    this.requestService.getFromHTTPExample();
   }
 
   getIDfromName(name: string): number {
-    const foundItems = this.items.filter(item => item.Name === name);
+    const foundItems = this.items.filter(item => item.item_name === name);
     if (foundItems.length === 1) {
-      return this.items.filter(item => item.Name === name)[0].ID;
+      return this.items.filter(item => item.item_name === name)[0].wowheadid;
     }
   }
 }
