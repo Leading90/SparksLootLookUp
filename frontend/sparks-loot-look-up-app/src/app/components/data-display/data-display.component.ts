@@ -10,7 +10,7 @@ import {ItemData, LootListData} from '../../dataTypes/shared-data-types';
 })
 export class DataDisplayComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'priority'];
+  displayedColumns: string[] = ['name', 'priority', 'hasItem'];
   dataSource: LootListData[];
 
   selectedItem = new FormControl();

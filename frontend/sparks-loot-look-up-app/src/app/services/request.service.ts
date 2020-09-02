@@ -30,7 +30,7 @@ export class RequestService {
 
   getItemOptions(): ItemData[] {
     const itemDataList: ItemData[] = [];
-    for (const entry of dummyData.records) {
+    for (const entry of dummyData.lootlist) {
       let test = true;
       const object = {item_name: entry.item_name, wowheadid: entry.wowheadid} as ItemData;
       for (const item of itemDataList) {
@@ -46,49 +46,26 @@ export class RequestService {
   }
 
   getPlayerOptions(): PlayerData[] {
-    const playerDataList: PlayerData[] = [];
-    for (const entry of dummyData.records) {
-      let test = true;
-      const object = {
-        idraider: entry.idraider,
-        name: entry.name,
-        class: entry.class,
-        priority: entry.priority
-      } as PlayerData;
-      for (const item of playerDataList) {
-        if (object.idraider === item.idraider) {
-          test = false;
-        }
-      }
-      if (test) {
-        playerDataList.push(object);
-      }
-    }
-    return playerDataList;
+    return dummyData.raiderlist;
   }
 
   getItemData(selectedItem: number): LootListData[] {
-    return dummyData.records.filter(entry => {
+    return dummyData.lootlist.filter(entry => {
       return entry.wowheadid === selectedItem;
     }).sort((n1, n2) => n1.priority - n2.priority);
   }
 
   getLootListData(selectedPlayer: string): BasicType[] {
-    return dummyData.records.filter(player => {
+    return dummyData.lootlist.filter(player => {
       return player.name === selectedPlayer;
     }).sort((n1, n2) => n1.priority - n2.priority);
   }
 
   getPlayerData(selectedPlayer: string): PlayerData {
-    const playerEntry = dummyData.records.filter(player => {
+    const playerEntry = dummyData.raiderlist.filter(player => {
       return player.name === selectedPlayer;
-    })[0];
-    return {
-      idraider: playerEntry.idraider,
-      name: playerEntry.name,
-      class: playerEntry.class,
-      priority: playerEntry.priority
-    } as PlayerData;
+    })[0] ;
+    return playerEntry as PlayerData;
   }
 
   getFromHTTPExample(): void {

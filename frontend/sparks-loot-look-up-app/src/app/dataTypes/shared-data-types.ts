@@ -13,7 +13,7 @@ export interface PlayerData {
   idraider: number;
   name: string;
   class: string;
-  priority: number;
+  modifier: number;
 }
 
 export interface BasicType {

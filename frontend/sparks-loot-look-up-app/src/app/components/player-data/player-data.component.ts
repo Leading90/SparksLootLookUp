@@ -25,10 +25,13 @@ export class PlayerDataComponent implements OnInit {
   }
 
   inputChanged(): void {
-    const player = this.requestService.getPlayerData(this.selectedName.value);
-    this.selectedPlayersModifier.setValue(player.priority);
-    this.playerData = JSON.stringify(player);
-    this.dataSource = this.requestService.getLootListData(this.selectedName.value);
+    if (this.selectedName.value) {
+      const player = this.requestService.getPlayerData(this.selectedName.value);
+      console.log(player.modifier);
+      this.selectedPlayersModifier.setValue(player.modifier);
+      this.playerData = JSON.stringify(player);
+      this.dataSource = this.requestService.getLootListData(this.selectedName.value);
+    }
   }
 
   modifierChanged(): void {
