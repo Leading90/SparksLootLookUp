@@ -2,6 +2,7 @@ export interface LootListData {
   idraider: number;
   rname: string;
   prioritynb: number;
+  distributed: number;
 }
 
 export interface ItemData {
@@ -22,4 +23,5 @@ export interface BasicType {
   rname: string;
   prioritynb: number;
   wowheadid: number;
+  distributed: number;
 }

@@ -10,7 +10,7 @@ import {ItemData, LootListData} from '../../dataTypes/shared-data-types';
 })
 export class DataDisplayComponent implements OnInit {
 
-  displayedColumns: string[] = ['rname', 'prioritynb', 'hasItem'];
+  displayedColumns: string[] = ['rname', 'prioritynb', 'distributed'];
   dataSource: LootListData[];
 
   selectedItem = new FormControl();
@@ -27,7 +27,7 @@ export class DataDisplayComponent implements OnInit {
   inputChanged(): void {
     if (this.selectedItem.value) {
       this.selectedItemID = this.getIDfromName(this.selectedItem.value);
-      this.getItemData( this.selectedItemID);
+      this.getItemData(this.selectedItemID);
     }
   }
 
@@ -63,5 +63,9 @@ export class DataDisplayComponent implements OnInit {
         }
       }
     });
+  }
+
+  isDistributed(element: any): boolean {
+    return Number(element.distributed) > 0;
   }
 }
