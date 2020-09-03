@@ -1,7 +1,7 @@
 export interface LootListData {
   idraider: number;
-  name: string;
-  priority: number;
+  rname: string;
+  prioritynb: number;
 }
 
 export interface ItemData {
@@ -11,7 +11,7 @@ export interface ItemData {
 
 export interface PlayerData {
   idraider: number;
-  name: string;
+  rname: string;
   class: string;
   modifier: number;
 }
@@ -19,7 +19,7 @@ export interface PlayerData {
 export interface BasicType {
   idraider: number;
   item_name: string;
-  name: string;
-  priority: number;
+  rname: string;
+  prioritynb: number;
   wowheadid: number;
 }

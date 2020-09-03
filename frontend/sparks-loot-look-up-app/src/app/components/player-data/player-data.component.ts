@@ -15,26 +15,52 @@ export class PlayerDataComponent implements OnInit {
   playerList: PlayerData[];
   dataSource: BasicType[];
   playerData = 'no player selected';
-  displayedColumns: string[] = ['item_name', 'priority'];
+  displayedColumns: string[] = ['item_name', 'prioritynb'];
 
   constructor(private requestService: RequestService) {
   }
 
   ngOnInit(): void {
-    this.playerList = this.requestService.getPlayerOptions();
+    this.setUpPlayerList();
   }
 
   inputChanged(): void {
     if (this.selectedName.value) {
-      const player = this.requestService.getPlayerData(this.selectedName.value);
-      console.log(player.modifier);
-      this.selectedPlayersModifier.setValue(player.modifier);
-      this.playerData = JSON.stringify(player);
-      this.dataSource = this.requestService.getLootListData(this.selectedName.value);
+      this.setPlayerData(this.selectedName.value);
+      this.getLootListData(this.selectedName.value);
     }
+  }
+
+  getLootListData(selectedPlayer: string): void{
+    this.requestService.getItemList().subscribe(data => {
+      this.dataSource = data.filter(player => {
+        return player.rname === selectedPlayer;
+      }).sort((n1, n2) => n1.prioritynb - n2.prioritynb);
+    });
+  }
+
+  setPlayerData(selectedPlayer: string): void {
+    this.requestService.getRaiderList().subscribe(
+      data => {
+        const playerData = data.find(player => {
+          return player.rname === selectedPlayer;
+        });
+        if (playerData) {
+          this.selectedPlayersModifier.setValue(playerData.modifier);
+          this.playerData = JSON.stringify(playerData);
+        }
+      });
   }
 
   modifierChanged(): void {
     // TODO: change modifier
+  }
+
+  private setUpPlayerList(): void {
+    this.requestService.getRaiderList().subscribe(
+      data => {
+        this.playerList = data;
+      }
+    );
   }
 }

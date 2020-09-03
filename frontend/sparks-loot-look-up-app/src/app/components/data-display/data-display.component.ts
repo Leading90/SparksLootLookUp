@@ -10,7 +10,7 @@ import {ItemData, LootListData} from '../../dataTypes/shared-data-types';
 })
 export class DataDisplayComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'priority', 'hasItem'];
+  displayedColumns: string[] = ['rname', 'prioritynb', 'hasItem'];
   dataSource: LootListData[];
 
   selectedItem = new FormControl();
@@ -21,20 +21,47 @@ export class DataDisplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = this.requestService.getItemOptions();
+    this.getItemOptions();
   }
 
   inputChanged(): void {
     if (this.selectedItem.value) {
-      this.dataSource = this.requestService.getItemData(this.getIDfromName(this.selectedItem.value));
       this.selectedItemID = this.getIDfromName(this.selectedItem.value);
+      this.getItemData( this.selectedItemID);
     }
   }
+
+  getItemData(selectedItem: number): void {
+    this.requestService.getItemList().subscribe(data => {
+      this.dataSource = data.filter(item => {
+        return item.wowheadid === selectedItem;
+      }).sort((n1, n2) => n1.prioritynb - n2.prioritynb);
+    });
+  }
+
 
   getIDfromName(name: string): number {
     const foundItems = this.items.filter(item => item.item_name === name);
     if (foundItems.length === 1) {
       return this.items.filter(item => item.item_name === name)[0].wowheadid;
     }
+  }
+
+  getItemOptions(): void {
+    this.requestService.getItemList().subscribe(data => {
+      this.items = [];
+      for (const entry of data) {
+        let exists = false;
+        const object = {item_name: entry.item_name, wowheadid: entry.wowheadid} as ItemData;
+        for (const item of this.items) {
+          if (object.wowheadid === item.wowheadid) {
+            exists = true;
+          }
+        }
+        if (!exists) {
+          this.items.push(object);
+        }
+      }
+    });
   }
 }
