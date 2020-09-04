@@ -15,12 +15,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RaidViewComponent } from './components/raid-view/raid-view.component';
+import { DefaultComponent } from './components/default/default.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataDisplayComponent,
-    PlayerDataComponent
+    PlayerDataComponent,
+    RaidViewComponent,
+    DefaultComponent
   ],
     imports: [
         BrowserModule,

@@ -9,7 +9,7 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of items" [value]="item.item_name">
+      <mat-option *ngFor="let item of filteredItems | async" [value]="item.item_name">
         {{item.item_name}}
       </mat-option>
     </mat-autocomplete>
@@ -40,7 +40,10 @@
     <ng-container matColumnDef="distributed">
       <th mat-header-cell *matHeaderCellDef>has item</th>
       <td mat-cell *matCellDef="let element">
-        <mat-checkbox [checked]="isDistributed(element)" [disabled]="true">{{element.distributed}}</mat-checkbox></td>
+        <mat-checkbox [checked]="isDistributed(element)"
+                      (change)="switchDistributed(element, $event.checked)"></mat-checkbox>
+      </td>
+      <!--        <mat-checkbox [checked]="isDistributed(element)" [disabled]="true" (change)="switchDistributed(element, $event.checked)"></mat-checkbox></td>-->
     </ng-container>
 
 

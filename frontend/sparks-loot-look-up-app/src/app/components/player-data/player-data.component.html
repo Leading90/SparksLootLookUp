@@ -9,7 +9,7 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of playerList" [value]="item.rname">
+      <mat-option *ngFor="let item of filteredPlayers | async" [value]="item.rname">
         {{item.rname}}
       </mat-option>
     </mat-autocomplete>
@@ -37,7 +37,10 @@
     <!-- Name Column -->
     <ng-container matColumnDef="item_name">
       <th mat-header-cell *matHeaderCellDef> Item Name</th>
-      <td mat-cell *matCellDef="let element"> {{element.item_name}} </td>
+      <td mat-cell *matCellDef="let element">
+        <a href="https://www.classic.wowhead.com/item={{element.wowheadid}}"
+           data-wowhead="item={{element.wowheadid}}">{{element.item_name}}</a>
+      </td>
     </ng-container>
 
     <!-- Weight Column -->

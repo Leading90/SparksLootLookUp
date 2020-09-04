@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
-import {ItemData, LootListData} from '../../dataTypes/shared-data-types';
+import {BasicType, DistributeChangeBody, LootListData} from '../../dataTypes/shared-data-types';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-data-display',
@@ -15,7 +17,8 @@ export class DataDisplayComponent implements OnInit {
 
   selectedItem = new FormControl();
   selectedItemID: number;
-  items: ItemData[];
+  items: BasicType[];
+  filteredItems: Observable<BasicType[]>;
 
   constructor(private requestService: RequestService) {
   }
@@ -39,7 +42,6 @@ export class DataDisplayComponent implements OnInit {
     });
   }
 
-
   getIDfromName(name: string): number {
     const foundItems = this.items.filter(item => item.item_name === name);
     if (foundItems.length === 1) {
@@ -47,25 +49,43 @@ export class DataDisplayComponent implements OnInit {
     }
   }
 
-  getItemOptions(): void {
-    this.requestService.getItemList().subscribe(data => {
-      this.items = [];
-      for (const entry of data) {
-        let exists = false;
-        const object = {item_name: entry.item_name, wowheadid: entry.wowheadid} as ItemData;
-        for (const item of this.items) {
-          if (object.wowheadid === item.wowheadid) {
-            exists = true;
-          }
-        }
-        if (!exists) {
-          this.items.push(object);
-        }
-      }
-    });
-  }
-
   isDistributed(element: any): boolean {
     return Number(element.distributed) > 0;
   }
+
+  switchDistributed(element: LootListData, checked: boolean): void {
+    this.requestService.postIsDistributed({
+      idlootlist: element.idlootlist,
+      distributed: checked ? 1 : 0
+    } as DistributeChangeBody);
+  }
+
+  private getItemOptions(): void {
+    this.requestService.getItemList().subscribe(data => {
+        this.items = [];
+        for (const entry of data) {
+          let exists = false;
+          for (const item of this.items) {
+            if (entry.wowheadid === item.wowheadid) {
+              exists = true;
+            }
+          }
+          if (!exists) {
+            this.items.push(entry);
+          }
+        }
+
+        this.filteredItems = this.selectedItem.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value))
+        );
+      }
+    );
+  }
+
+  private _filter(value: string): BasicType[] {
+    const filterValue = value.toLowerCase();
+    return this.items.filter(option => option.item_name.toLowerCase().includes(filterValue));
+  }
+
 }

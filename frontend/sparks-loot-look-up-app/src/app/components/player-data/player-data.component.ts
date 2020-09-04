@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BasicType, PlayerData} from '../../dataTypes/shared-data-types';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-player-data',
@@ -13,6 +15,7 @@ export class PlayerDataComponent implements OnInit {
   selectedName = new FormControl();
   selectedPlayersModifier = new FormControl();
   playerList: PlayerData[];
+  filteredPlayers: Observable<PlayerData[]>;
   dataSource: BasicType[];
   playerData = 'no player selected';
   displayedColumns: string[] = ['item_name', 'prioritynb'];
@@ -31,7 +34,7 @@ export class PlayerDataComponent implements OnInit {
     }
   }
 
-  getLootListData(selectedPlayer: string): void{
+  getLootListData(selectedPlayer: string): void {
     this.requestService.getItemList().subscribe(data => {
       this.dataSource = data.filter(player => {
         return player.rname === selectedPlayer;
@@ -60,7 +63,17 @@ export class PlayerDataComponent implements OnInit {
     this.requestService.getRaiderList().subscribe(
       data => {
         this.playerList = data;
+
+        this.filteredPlayers = this.selectedName.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filter(value))
+        );
       }
     );
+  }
+
+  private _filter(value: string): PlayerData[] {
+    const filterValue = value.toLowerCase();
+    return this.playerList.filter(option => option.rname.toLowerCase().includes(filterValue));
   }
 }

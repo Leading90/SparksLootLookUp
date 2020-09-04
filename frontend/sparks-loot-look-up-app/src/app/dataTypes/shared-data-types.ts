@@ -3,11 +3,7 @@ export interface LootListData {
   rname: string;
   prioritynb: number;
   distributed: number;
-}
-
-export interface ItemData {
-  item_name: string;
-  wowheadid: number;
+  idlootlist: number;
 }
 
 export interface PlayerData {
@@ -19,9 +15,17 @@ export interface PlayerData {
 
 export interface BasicType {
   idraider: number;
+  idlootlist: number;
   item_name: string;
   rname: string;
   prioritynb: number;
   wowheadid: number;
+  distributed: number;
+  raid: string;
+  boss: string;
+}
+
+export interface DistributeChangeBody {
+  idlootlist: number;
   distributed: number;
 }
