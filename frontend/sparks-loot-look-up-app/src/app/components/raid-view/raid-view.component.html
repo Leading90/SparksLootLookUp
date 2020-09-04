@@ -1,8 +1,9 @@
 <form class="form">
 
   <mat-form-field class="form-field">
-    <label>
-      <input type="text"
+    <label >
+      <input
+             type="text"
              placeholder="Select Raid"
              matInput
              [formControl]="selectedRaid"
@@ -10,8 +11,8 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let raid of raids" [value]="raid.raid">
-        {{raid.item_name}}
+      <mat-option *ngFor="let raid of filteredRaids | async" [value]="raid.raid">
+        {{raid.raid}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
@@ -26,8 +27,8 @@
              [matAutocomplete]="auto">
     </label>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let boss of bosses" [value]="boss.boss">
-        {{boss.item_name}}
+      <mat-option *ngFor="let boss of filteredBosses | async" [value]="boss.boss">
+        {{boss.boss}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

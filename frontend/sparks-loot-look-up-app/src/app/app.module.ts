@@ -15,8 +15,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { RaidViewComponent } from './components/raid-view/raid-view.component';
-import { DefaultComponent } from './components/default/default.component';
+import {RaidViewComponent} from './components/raid-view/raid-view.component';
+import {DefaultComponent} from './components/default/default.component';
 
 @NgModule({
   declarations: [
@@ -26,21 +26,21 @@ import { DefaultComponent } from './components/default/default.component';
     RaidViewComponent,
     DefaultComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatAutocompleteModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatInputModule,
-        MatTableModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCheckboxModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCheckboxModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
