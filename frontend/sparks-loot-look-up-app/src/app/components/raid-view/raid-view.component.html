@@ -1,17 +1,17 @@
 <form class="form">
 
   <mat-form-field class="form-field">
-    <label >
+    <label>
       <input
-             type="text"
-             placeholder="Select Raid"
-             matInput
-             [formControl]="selectedRaid"
-             (ngModelChange)="raidChanged()"
-             [matAutocomplete]="auto">
+        type="text"
+        placeholder="Select Raid"
+        matInput
+        [formControl]="selectedRaid"
+        (ngModelChange)="raidChanged()"
+        [matAutocomplete]="autoRaid">
     </label>
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let raid of filteredRaids | async" [value]="raid.raid">
+    <mat-autocomplete #autoRaid="matAutocomplete">
+      <mat-option *ngFor="let raid of raids" [value]="raid.raid">
         {{raid.raid}}
       </mat-option>
     </mat-autocomplete>
@@ -24,9 +24,9 @@
              matInput
              [formControl]="selectedBoss"
              (ngModelChange)="bossChanged()"
-             [matAutocomplete]="auto">
+             [matAutocomplete]="autoBosses">
     </label>
-    <mat-autocomplete #auto="matAutocomplete">
+    <mat-autocomplete #autoBosses="matAutocomplete">
       <mat-option *ngFor="let boss of filteredBosses | async" [value]="boss.boss">
         {{boss.boss}}
       </mat-option>
@@ -34,29 +34,39 @@
   </mat-form-field>
 </form>
 
-<!--  <table mat-table [dataSource]="dataSource" class="table">-->
+<table mat-table [dataSource]="dataSource" class="table">
 
-<!--    &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--    <ng-container matColumnDef="rname">-->
-<!--      <th mat-header-cell *matHeaderCellDef> Player Name</th>-->
-<!--      <td mat-cell *matCellDef="let element"> {{element.rname}} </td>-->
-<!--    </ng-container>-->
+  <!-- Name Column -->
+  <ng-container matColumnDef="item_name">
+    <th mat-header-cell *matHeaderCellDef> Item Name</th>
+    <td mat-cell *matCellDef="let element">
+      <a href="https://www.classic.wowhead.com/item={{element.wowheadid}}"
+         data-wowhead="item={{element.wowheadid}}">{{element.item_name}}</a>
+    </td>
+  </ng-container>
 
-<!--    &lt;!&ndash; Rating Column &ndash;&gt;-->
-<!--    <ng-container matColumnDef="prioritynb">-->
-<!--      <th mat-header-cell *matHeaderCellDef> Rating</th>-->
-<!--      <td mat-cell *matCellDef="let element"> {{element.prioritynb}} </td>-->
-<!--    </ng-container>-->
+  <!-- Rating Column -->
+  <ng-container matColumnDef="rname">
+    <th mat-header-cell *matHeaderCellDef> Player Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.rname}} </td>
+  </ng-container>
 
-<!--    &lt;!&ndash; checkbox Column &ndash;&gt;-->
-<!--    <ng-container matColumnDef="distributed">-->
-<!--      <th mat-header-cell *matHeaderCellDef>has item</th>-->
-<!--      <td mat-cell *matCellDef="let element">-->
-<!--        <mat-checkbox [checked]="isDistributed(element)" [disabled]="true" (change)="switchDistributed(element, $event.checked)"></mat-checkbox></td>-->
-<!--    </ng-container>-->
+  <!-- Rating Column -->
+  <ng-container matColumnDef="prioritynb">
+    <th mat-header-cell *matHeaderCellDef> Rating</th>
+    <td mat-cell *matCellDef="let element"> {{element.prioritynb}} </td>
+  </ng-container>
+
+  <!--  &lt;!&ndash; checkbox Column &ndash;&gt;-->
+  <!--  <ng-container matColumnDef="distributed">-->
+  <!--    <th mat-header-cell *matHeaderCellDef>has item</th>-->
+  <!--    <td mat-cell *matCellDef="let element">-->
+  <!--      <mat-checkbox [checked]="isDistributed(element)" [disabled]="true"-->
+  <!--                    (change)="switchDistributed(element, $event.checked)"></mat-checkbox>-->
+  <!--    </td>-->
+  <!--  </ng-container>-->
 
 
-<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--  </table>-->
-<!--</div>-->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
