@@ -1,0 +1,9 @@
+form {
+  padding: 10px;
+}
+
+form-field {
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+}
