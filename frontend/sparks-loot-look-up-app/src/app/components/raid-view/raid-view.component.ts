@@ -91,6 +91,8 @@ export class RaidViewComponent implements OnInit {
 
   bossChanged(): void {
     this.dataSource = this.items.filter(option => option.boss === this.selectedBoss.value);
+    this.dataSource.sort((n1, n2) => n1.prioritynb - n2.prioritynb);
+    this.dataSource.sort((n1, n2) => n2.item_name.localeCompare(n1.item_name));
   }
 
   raidChanged(): void {
