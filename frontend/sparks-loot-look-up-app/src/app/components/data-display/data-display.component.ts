@@ -4,6 +4,7 @@ import {RequestService} from '../../services/request.service';
 import {BasicType, DistributeChangeBody, LootListData} from '../../dataTypes/shared-data-types';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {LogInService} from '../../services/log-in.service';
 
 @Component({
   selector: 'app-data-display',
@@ -20,7 +21,11 @@ export class DataDisplayComponent implements OnInit {
   items: BasicType[];
   filteredItems: Observable<BasicType[]>;
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private logInService: LogInService) {
+  }
+
+  get loggedIn(): boolean {
+    return this.logInService.isLoggedIn();
   }
 
   ngOnInit(): void {
@@ -35,7 +40,7 @@ export class DataDisplayComponent implements OnInit {
   }
 
   getItemData(selectedItem: number): void {
-    this.requestService.getItemList().subscribe(data => {
+    this.requestService.getItemListTotal().subscribe(data => {
       this.dataSource = data.filter(item => {
         return item.wowheadid === selectedItem;
       }).sort((n1, n2) => n1.prioritynb - n2.prioritynb);
@@ -55,8 +60,8 @@ export class DataDisplayComponent implements OnInit {
 
   switchDistributed(element: LootListData, checked: boolean): void {
     this.requestService.postIsDistributed({
-      idlootlist: element.idlootlist,
-      distributed: checked ? 1 : 0
+      idlootlist: element.idlootlist.toString(),
+      distributed: checked ? '1' : '0'
     } as DistributeChangeBody);
   }
 

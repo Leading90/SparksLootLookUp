@@ -17,6 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {RaidViewComponent} from './components/raid-view/raid-view.component';
 import {DefaultComponent} from './components/default/default.component';
+import { LogInDialogComponent } from './components/log-in-dialog/log-in-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,23 +26,25 @@ import {DefaultComponent} from './components/default/default.component';
     DataDisplayComponent,
     PlayerDataComponent,
     RaidViewComponent,
-    DefaultComponent
+    DefaultComponent,
+    LogInDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatAutocompleteModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatInputModule,
-    MatTableModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatInputModule,
+        MatTableModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatDialogModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
