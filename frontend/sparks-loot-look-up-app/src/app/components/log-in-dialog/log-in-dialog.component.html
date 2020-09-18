@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>LogIn</h1>
+<div mat-dialog-content [formGroup]="form">
+  <div *ngIf="message" style="color: darkred">{{message}}</div>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <label>
+      <input matInput formControlName="userName">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <label>
+      <input matInput formControlName="password">
+    </label>
+  </mat-form-field>
+</div>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()" style="margin: 5px">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()" style="margin: 5px">LogIn</button>
+</mat-dialog-actions>

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {BasicType, LootListData} from '../../dataTypes/shared-data-types';
+import {BasicType, DistributeChangeBody} from '../../dataTypes/shared-data-types';
 import {RequestService} from '../../services/request.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {LogInService} from '../../services/log-in.service';
 
 @Component({
   selector: 'app-raid-view',
@@ -23,9 +24,13 @@ export class RaidViewComponent implements OnInit {
 
   items: BasicType[];
   dataSource: BasicType[];
-  displayedColumns: string[] = ['item_name', 'rname', 'prioritynb'];
+  displayedColumns: string[] = ['item_name', 'rname', 'prioritynb', 'distributed'];
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private logInService: LogInService) {
+  }
+
+  get loggedIn(): boolean {
+    return this.logInService.isLoggedIn();
   }
 
   ngOnInit(): void {
@@ -100,4 +105,13 @@ export class RaidViewComponent implements OnInit {
     this.selectedBoss.setValue('');
     this.dataSource = this.items.filter(option => option.raid === this.selectedRaid.value);
   }
+
+  switchDistributed(element: any): void {
+    this.requestService.postIsDistributed({
+      idlootlist: element.idlootlist.toString(),
+      distributed: '1'
+    } as DistributeChangeBody);
+    this.dataSource = this.dataSource.filter(option => option.idlootlist !== element.idlootlist);
+  }
+
 }

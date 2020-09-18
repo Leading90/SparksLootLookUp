@@ -11,6 +11,12 @@
     <button mat-button class="selectionButton" routerLink="/player" routerLinkActive="active">
       Player View
     </button>
+    <button mat-button class="selectionButton" (click)="openLogInDialog()" *ngIf="!loggedIn">
+      LogIn
+    </button>
+    <button mat-button class="selectionButton" (click)="logOut()" *ngIf="loggedIn">
+      LogOut
+    </button>
   </mat-toolbar>
 </p>
 

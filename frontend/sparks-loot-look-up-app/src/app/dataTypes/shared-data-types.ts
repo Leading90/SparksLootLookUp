@@ -26,6 +26,6 @@ export interface BasicType {
 }
 
 export interface DistributeChangeBody {
-  idlootlist: number;
-  distributed: number;
+  idlootlist: string;
+  distributed: string;
 }

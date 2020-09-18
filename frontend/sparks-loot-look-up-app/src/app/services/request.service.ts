@@ -20,12 +20,15 @@ export class RequestService {
     return this.http.get<BasicType[]>('http://95.217.185.88/api/read.php?lt=ll');
   }
 
+  getItemListTotal(): Observable<BasicType[]> {
+    return this.http.get<BasicType[]>('http://95.217.185.88/api/read.php?lt=lltotal');
+  }
+
   getRaiderList(): Observable<PlayerData[]> {
     return this.http.get<PlayerData[]>('http://95.217.185.88/api/read.php?lt=rl');
   }
 
   postIsDistributed(distributeElement: DistributeChangeBody): void {
-    console.log(distributeElement);
     this.http.post( 'http://95.217.185.88/api/update.php' , distributeElement).subscribe(data => console.log(data));
   }
 }

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {BasicType, PlayerData} from '../../dataTypes/shared-data-types';
+import {BasicType, DistributeChangeBody, LootListData, PlayerData} from '../../dataTypes/shared-data-types';
 import {FormControl} from '@angular/forms';
 import {RequestService} from '../../services/request.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {LogInService} from '../../services/log-in.service';
 
 @Component({
   selector: 'app-player-data',
@@ -18,9 +19,13 @@ export class PlayerDataComponent implements OnInit {
   filteredPlayers: Observable<PlayerData[]>;
   dataSource: BasicType[];
   playerData = 'no player selected';
-  displayedColumns: string[] = ['item_name', 'prioritynb'];
+  displayedColumns: string[] = ['item_name', 'prioritynb', 'distributed'];
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private logInService: LogInService) {
+  }
+
+  get loggedIn(): boolean {
+    return this.logInService.isLoggedIn();
   }
 
   ngOnInit(): void {
@@ -35,7 +40,7 @@ export class PlayerDataComponent implements OnInit {
   }
 
   getLootListData(selectedPlayer: string): void {
-    this.requestService.getItemList().subscribe(data => {
+    this.requestService.getItemListTotal().subscribe(data => {
       this.dataSource = data.filter(player => {
         return player.rname === selectedPlayer;
       }).sort((n1, n2) => n1.prioritynb - n2.prioritynb);
@@ -75,5 +80,16 @@ export class PlayerDataComponent implements OnInit {
   private _filter(value: string): PlayerData[] {
     const filterValue = value.toLowerCase();
     return this.playerList.filter(option => option.rname.toLowerCase().includes(filterValue));
+  }
+
+  switchDistributed(element: LootListData, checked: boolean): void {
+    this.requestService.postIsDistributed({
+      idlootlist: element.idlootlist.toString(),
+      distributed: checked ? '1' : '0'
+    } as DistributeChangeBody);
+  }
+
+  isDistributed(element: any): boolean {
+    return Number(element.distributed) > 0;
   }
 }
