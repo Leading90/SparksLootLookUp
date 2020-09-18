@@ -111,6 +111,7 @@ export class RaidViewComponent implements OnInit {
       idlootlist: element.idlootlist.toString(),
       distributed: '1'
     } as DistributeChangeBody);
+    this.dataSource = this.dataSource.filter(option => option.idlootlist !== element.idlootlist);
   }
 
 }
