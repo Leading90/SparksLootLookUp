@@ -17,7 +17,7 @@
 </form>
 
 <div *ngIf="dataSource">
-  <form class="form">
+  <form class="form" *ngIf="false">
     <mat-form-field class="form-field">
       <label>
         <input type="text"
@@ -28,7 +28,7 @@
       </label>
     </mat-form-field>
     <button mat-flat-button color="primary" (click)="modifierChanged()" style="margin: 10px">
-      change Modifiervv
+      change Modifier
     </button>
   </form>
 
